@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["./.env"],
+  "globalEnv": ["SIGNING_KEY","NEXT_PUBLIC_DEVELOPMENT","MONGODB_URI","REFRESH_KEY","BACKEND_SECRET",
+    "NEXT_PUBLIC_BACKEND_BASE_URL","NEXT_PUBLIC_FRONTEND_BASE_URL","GOOGLE_CLIENT_ID","GOOGLE_CLIENT_SECRET"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "storybook": {
+    },
+    "compile": {
+
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
