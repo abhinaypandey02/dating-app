@@ -6,6 +6,7 @@ import { DatingIntentions } from "../../../../constants/dating-intentions";
 import { FamilyPlans } from "../../../../constants/family-plans";
 import { ViceLevel } from "../../../../constants/vice-level";
 import { Politics } from "../../../../constants/politics";
+import { PromptAnswer } from "../../../../constants/prompt";
 
 @ObjectType()
 export class UserModel {
@@ -17,6 +18,11 @@ export class UserModel {
   };
   refreshTokens: string[] = [];
   scopes: "phone"[];
+  media?: {
+    type: "photo" | "video";
+    prompt: PromptAnswer;
+  }[];
+  prompts: PromptAnswer[];
   datingPreferences?: {
     interestedGender: (typeof Gender)[number]["value"];
     neighbourhood: string;
