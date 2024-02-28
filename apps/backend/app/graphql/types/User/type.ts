@@ -1,12 +1,15 @@
+import { Gender } from "values/gender";
+import { Ethnicity } from "values/ethnicity";
+import { Religion } from "values/religion";
+import { DatingIntentions } from "values/dating-intentions";
+import { FamilyPlans } from "values/family-plans";
+import { ViceLevel } from "values/vice-level";
+import { Politics } from "values/politics";
+import { PromptAnswer } from "values/prompt";
+import { Education } from "values/education";
+import { Sexuality } from "values/sexuality";
+import { PossibleValues } from "values/generics";
 import { Field, ObjectType } from "type-graphql";
-import { Gender } from "../../../../constants/gender";
-import { Ethnicity } from "../../../../constants/ethnicity";
-import { Religion } from "../../../../constants/religion";
-import { DatingIntentions } from "../../../../constants/dating-intentions";
-import { FamilyPlans } from "../../../../constants/family-plans";
-import { ViceLevel } from "../../../../constants/vice-level";
-import { Politics } from "../../../../constants/politics";
-import { PromptAnswer } from "../../../../constants/prompt";
 
 @ObjectType()
 export class UserModel {
@@ -23,20 +26,42 @@ export class UserModel {
     prompt: PromptAnswer;
   }[];
   prompts: PromptAnswer[];
+  virtues?: {
+    jobCompany?: string;
+    jobTitle: string;
+    college: string;
+    educationLevel?: PossibleValues<typeof Education>;
+    religion?: PossibleValues<typeof Religion>;
+    hometown: string;
+    languages: string[];
+    politics?: PossibleValues<typeof Politics>;
+    datingIntentions?: PossibleValues<typeof DatingIntentions>;
+  };
+  vitals?: {
+    name: string;
+    gender: PossibleValues<typeof Gender>;
+    sexuality: PossibleValues<typeof Sexuality>;
+    dob: Date;
+    height: number;
+    location: string;
+    ethnicity?: PossibleValues<typeof Ethnicity>;
+    familyPlans?: PossibleValues<typeof FamilyPlans>;
+  };
   datingPreferences?: {
-    interestedGender: (typeof Gender)[number]["value"];
+    gender: PossibleValues<typeof Gender>;
     neighbourhood: string;
     maximumDistance: number;
     ageRange: [number, number];
-    ethnicity?: (typeof Ethnicity)[number]["value"];
-    religion?: (typeof Religion)[number]["value"];
+    ethnicity?: PossibleValues<typeof Ethnicity>;
+    religion?: PossibleValues<typeof Religion>;
     heightRange?: [number, number];
-    datingIntentions?: (typeof DatingIntentions)[number]["value"];
-    familyPlans?: (typeof FamilyPlans)[number]["value"];
-    drugs?: (typeof ViceLevel)[number]["value"];
-    smoking?: (typeof ViceLevel)[number]["value"];
-    marijuana?: (typeof ViceLevel)[number]["value"];
-    drinking?: (typeof ViceLevel)[number]["value"];
-    politics?: (typeof Politics)[number]["value"];
+    datingIntentions?: PossibleValues<typeof DatingIntentions>;
+    familyPlans?: PossibleValues<typeof FamilyPlans>;
+    drugs?: PossibleValues<typeof ViceLevel>;
+    smoking?: PossibleValues<typeof ViceLevel>;
+    marijuana?: PossibleValues<typeof ViceLevel>;
+    drinking?: PossibleValues<typeof ViceLevel>;
+    politics?: PossibleValues<typeof Politics>;
+    education?: PossibleValues<typeof Education>;
   };
 }

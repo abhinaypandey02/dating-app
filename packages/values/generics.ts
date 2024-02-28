@@ -1,0 +1,1 @@
+export type PossibleValues<T extends {value:any}[]> = T[number]['value']

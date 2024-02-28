@@ -2,7 +2,7 @@
 // import {
 //   Currency,
 // } from '@/__generated__/graphql'
-// import { fees } from '@/lib/constants'
+// import { fees } from '@/lib/values'
 // import { ROUTES } from '@/lib/router/routes'
 // import {
 //   getPriceServiceFee,
