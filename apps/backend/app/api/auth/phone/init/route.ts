@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { hash } from "bcrypt";
-import { ErrorResponses } from "../../email/error-responses";
+import { ErrorResponses } from "../error-responses";
 import {
   connectMongoClient,
   disconnectMongoClient,

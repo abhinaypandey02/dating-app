@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { compare } from "bcrypt";
-import { ErrorResponses } from "../../email/error-responses";
+import { ErrorResponses } from "../error-responses";
 import { clearOTP, getTokenizedResponse, getUser } from "../../user";
 import {
   generateAccessToken,
